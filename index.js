@@ -22,15 +22,16 @@ omx_dbus.on('finish', function() {
  */
 module.exports = eventEmitter;
 module.exports.open = omx_dbus.openPlayer;
-module.exports.playPause = function(cb) { //checked
-  omx_dbus.method('PlayPause', function(err) {
-    return typeof cb === 'function' ? cb(err) : {};
-  });
-};
-module.exports.pause = function(cb) { //checked IDEM playPause
-  omx_dbus.method('Pause', function(err) {
-    return typeof cb === 'function' ? cb(err) : {};
-  });
+module.exports.pause = omx_dbus.pause;
+// module.exports.playPause = function(cb) { //checked
+//   omx_dbus.method('PlayPause', function(err) {
+//     return typeof cb === 'function' ? cb(err) : {};
+//   });
+// };
+// module.exports.pause = function(cb) { //checked IDEM playPause
+//   omx_dbus.method('Pause', function(err) {
+//     return typeof cb === 'function' ? cb(err) : {};
+//   });
 };
 module.exports.stop = function(cb) { //checked IDEM Stop
     omx_dbus.method('Stop', function(err) {
